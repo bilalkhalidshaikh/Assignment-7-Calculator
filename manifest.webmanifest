@@ -1,0 +1,22 @@
+{
+  "short_name": "Calculator",
+  "name": "Versatile Calculator",
+  "description": "Simple JS Calculator",
+  "icons": [
+    {
+      "src": "icons8-calculator-48.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "icons8-calculator-48.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/?source=pwa",
+  "background_color": "#3367D6",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#3367D6"
+}

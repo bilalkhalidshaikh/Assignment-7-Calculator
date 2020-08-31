@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+      integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:600,700"
+      rel="stylesheet"
+    />
+    <link
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <title>Mobile Calculator</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="iphone-x">
+        <div class="screen">
+          <!-- Main Screen -->
+          <!-- notch -->
+          <div class="notch">
+            <div class="sound"></div>
+            <div class="camera"></div>
+            <!-- notch End -->
+          </div>
+          <div class="time" id="time">
+            <script>
+              var timer = document.getElementById("time").innerHTML;
+              var today = new Date();
+              var time = today.getHours() + ":" + today.getMinutes();
+              timer = document.write(time);
+            </script>
+          </div>
+          <div style="margin-top: -20px">
+            <i
+              style="
+                color: rgba(119, 230, 245, 0.904) !important;
+                margin-left: 230px !important;
+              "
+              class="fa fa-battery-full"
+              aria-hidden="true"
+            ></i>
+          </div>
+          <div style="margin-top: -22px !important; margin-left: 260px">
+            <i
+              style="color: rgb(255, 255, 255) !important; margin-top: -20px"
+              class="fa fa-wifi"
+              aria-hidden="true"
+            ></i>
+          </div>
+          <div class="top-nav"></div>
+
+          <!-- Main Calculator -->
+
+          <div class="calculator container">
+            <div>
+              <input
+                onfocus="this.style.boxShadow='-1px -1px 3px 0 rgba(99, 99, 99, 1), 1px 1px 3px 0 rgba(0, 0, 0, 1), inset 1px 1px 5px 0 rgba(0, 0, 0, 1),inset -2px -2px 5px 0 rgba(99, 99, 99, 1),inset 1px 1px 5px 0 rgba(0, 0, 0, 1),inset -2px -2px 5px 0 rgba(99, 99, 99, 1)'"
+                onblur="this.style.backgrooundColor='#373737;'"
+                type="text"
+                id="input"
+                class="input"
+              />
+            </div>
+            <div class="key container" id="keyBoard">
+              <div class="first-col"></div>
+
+              <div class="second-col">
+                <div class="button">
+                  <button class="symbol" onclick="clearScr()">C</button>
+                </div>
+                <div class="button">
+                  <button class="operator" onclick="key('7')">7</button>
+                </div>
+                <div class="button">
+                  <button class="operator" onclick="key('4')">4</button>
+                </div>
+                <div class="button">
+                  <button class="operator" onclick="key('1')">1</button>
+                </div>
+
+                <div class="button">
+                  <button class="operator" onclick="key('0')">0</button>
+                </div>
+              </div>
+
+              <div class="third-col">
+                <div class="button">
+                  <button
+                    onclick="back()"
+                    class="symbol"
+                    style="font-size: 23px !important"
+                  >
+                    <svg
+                      class="bi bi-backspace"
+                      width="1em"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M6.603 2h7.08a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-7.08a1 1 0 0 1-.76-.35L1 8l4.844-5.65A1 1 0 0 1 6.603 2zm7.08-1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-7.08a2 2 0 0 1-1.519-.698L.241 8.65a1 1 0 0 1 0-1.302L5.084 1.7A2 2 0 0 1 6.603 1h7.08z"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        d="M5.83 5.146a.5.5 0 0 0 0 .708l5 5a.5.5 0 0 0 .707-.708l-5-5a.5.5 0 0 0-.708 0z"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        d="M11.537 5.146a.5.5 0 0 1 0 .708l-5 5a.5.5 0 0 1-.708-.708l5-5a.5.5 0 0 1 .707 0z"
+                      />
+                    </svg>
+                  </button>
+                </div>
+                <div class="button">
+                  <button class="operator" onclick="key('8')">8</button>
+                </div>
+                <div class="button">
+                  <button class="operator" onclick="key('5')">5</button>
+                </div>
+                <div class="button">
+                  <button class="operator" onclick="key('2')">2</button>
+                </div>
+
+                <div class="button">
+                  <button
+                    class="symbol"
+                    style="font-size: 8px !important"
+                    onclick="key('.')"
+                  >
+                    <i class="fa fa-circle" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="fourth-col">
+                <div class="button">
+                  <button
+                    class="symbol"
+                    onclick="key('%')"
+                    style="font-size: 16px"
+                  >
+                    <i class="fa fa-percent" aria-hidden="true"></i>
+                  </button>
+                </div>
+                <div class="button">
+                  <button class="operator" onclick="key('9')">9</button>
+                </div>
+                <div class="button">
+                  <button class="operator" onclick="key('6')">6</button>
+                </div>
+                <div class="button">
+                  <button class="operator" onclick="key('3')">3</button>
+                </div>
+
+                <div class="button">
+                  <button
+                    class="symbol"
+                    style="font-size: 17px; font-weight: normal"
+                    onclick="key('+')"
+                  >
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="fifth-col">
+                <div class="button">
+                  <button
+                    class="symbol"
+                    onclick="key('/')"
+                    style="font-size: 30px !important"
+                  >
+                    ÷
+                  </button>
+                </div>
+                <div class="button">
+                  <button
+                    class="symbol"
+                    onclick="key('*')"
+                    style="font-size: 30px !important"
+                  >
+                    ×
+                  </button>
+                </div>
+                <div class="button">
+                  <button
+                    class="symbol"
+                    onclick="key('-')"
+                    style="font-size: 16px !important"
+                  >
+                    <i class="fa fa-minus" aria-hidden="true"></i>
+                  </button>
+                </div>
+
+                <div class="button">
+                  <button
+                    class="symbol"
+                    style="height: 120px; font-size: 35px"
+                    onclick="result()"
+                  >
+                    =
+                  </button>
+                </div>
+              </div>
+
+              <div class="home">
+                <svg
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 16 16"
+                  class="bi bi-house-door"
+                  fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M7.646 1.146a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 .146.354v7a.5.5 0 0 1-.5.5H9.5a.5.5 0 0 1-.5-.5v-4H7v4a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .146-.354l6-6zM2.5 7.707V14H6v-4a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v4h3.5V7.707L8 2.207l-5.5 5.5z"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    d="M13 2.5V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"
+                  />
+                </svg>
+              </div>
+
+              <div class="menu">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+              </div>
+              <div class="back">
+                <i class="fa fa-step-backward" aria-hidden="true"></i>
+              </div>
+            </div>
+          </div>
+          <!-- Main Calculator -->
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <!-- JavaScript and dependencies -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+    integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+    crossorigin="anonymous"
+  ></script>
+  <script src="./App.js"></script>
+</html>
